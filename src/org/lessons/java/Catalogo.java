@@ -47,9 +47,12 @@ class Catalogo {
 			s.nextLine();
 			System.out.println("Insert name:");
 			String name = s.nextLine();
-			System.out.println("Insert price:");
-			double price = s.nextDouble();
-			s.nextLine();
+			double price;
+			do {
+				System.out.println("Insert positive price:");
+				price = s.nextDouble();
+				s.nextLine();
+			} while (price < 0);
 			System.out.println("Insert brand:");
 			String brand = s.nextLine();
 

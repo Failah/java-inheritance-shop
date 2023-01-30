@@ -36,16 +36,16 @@ public class Prodotto {
 	protected double IVA = 22;
 
 	public Prodotto(String name, Double price, String brand) {
-		this.name = name;
-		this.price = price;
-		this.brand = brand;
+		this.setName(name);
+		this.setPrice(price);
+		this.setBrand(brand);
 
 		Random r = new Random();
 		this.code = r.nextInt();
 	}
 
 	public String toString() {
-		return "Name: " + name + "\nPrice: " + price + "\nCode: " + code + "\nBrand: " + brand;
+		return "Name: " + name + "\nPrice: " + price + "Euro" + "\nCode: " + code + "\nBrand: " + brand;
 	}
 
 	public int getCode() {
@@ -73,7 +73,12 @@ public class Prodotto {
 	}
 
 	public void setPrice(double price) {
-		this.price = price;
+		if (price > 0) {
+			this.price = price;
+		} else {
+			System.out.println("You cannot enter a negative price!");
+			return;
+		}
 	}
 
 	public double getIVA() {
