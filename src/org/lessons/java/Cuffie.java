@@ -28,13 +28,21 @@ package org.lessons.java;
 
 public class Cuffie extends Prodotto {
 
-	String color;
-	boolean isWireless;
+	protected String color;
+	protected boolean isWireless;
 
-	public Cuffie(String name, Double price) {
-		super(name, price);
+	public Cuffie(String name, Double price, String brand, String color, boolean isWireless) {
+		super(name, price, brand);
 		this.name = name;
 		this.price = price;
+		this.brand = brand;
+		this.color = color;
+		this.isWireless = isWireless;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\nColor: " + color + "\nWireless: " + isWireless + "\n ";
 	}
 
 }

@@ -30,18 +30,22 @@ import java.util.Random;
 
 public class Prodotto {
 	protected int code;
-	String name;
-	String brand;
-	double price;
-	double IVA = 22;
+	protected String name;
+	protected String brand;
+	protected double price;
+	protected double IVA = 22;
 
-	public Prodotto(String name, Double price) {
-		// TODO Auto-generated constructor stub
+	public Prodotto(String name, Double price, String brand) {
 		this.name = name;
 		this.price = price;
+		this.brand = brand;
 
 		Random r = new Random();
 		this.code = r.nextInt();
+	}
+
+	public String toString() {
+		return "Name: " + name + "\nPrice: " + price + "\nCode: " + code + "\nBrand: " + brand;
 	}
 
 	public int getCode() {

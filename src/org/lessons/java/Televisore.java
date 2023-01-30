@@ -28,13 +28,21 @@ package org.lessons.java;
 
 public class Televisore extends Prodotto {
 
-	double inches;
-	boolean isSmart;
+	protected double inches;
+	protected boolean isSmart;
 
-	public Televisore(String name, Double price) {
-		super(name, price);
+	public Televisore(String name, Double price, String brand, double inches, boolean isSmart) {
+		super(name, price, brand);
 		this.name = name;
 		this.price = price;
+		this.brand = brand;
+		this.inches = inches;
+		this.isSmart = isSmart;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\nInches: " + inches + "\nSmart TV: " + isSmart + "\n ";
 	}
 
 }

@@ -26,11 +26,74 @@ per ogni classe)
 
 package org.lessons.java;
 
-public class Catalogo {
+import java.util.Random;
+import java.util.Scanner;
+
+class Catalogo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		// Scanner s = new Scanner(System.in);
+		// System.out.println("How many products do you want to add?");
+		// int number = s.nextInt();
+		// s.nextLine();
+		// s.close();
+
+		int number = 3;
+
+		Prodotto[] products = new Prodotto[number];
+		int counter = 0;
+
+		Scanner scanner = new Scanner(System.in);
+		while (counter < number) {
+			System.out.println("Choose to insert Smartphone (1), Televisore (2) or Cuffie (3):");
+			int choice = scanner.nextInt();
+			scanner.nextLine();
+			System.out.println("Insert name:");
+			String name = scanner.nextLine();
+			System.out.println("Insert price:");
+			double price = scanner.nextDouble();
+			scanner.nextLine();
+			System.out.println("Insert brand:");
+			String brand = scanner.nextLine();
+
+			switch (choice) {
+			case 1:
+				System.out.println("Insert memory capacity in GB:");
+				int memory = scanner.nextInt();
+				Random r = new Random();
+				int IMEI = r.nextInt();
+				products[counter] = new Smartphone(name, price, brand, memory, IMEI);
+				break;
+			case 2:
+				System.out.println("Insert inches:");
+				int inches = scanner.nextInt();
+				scanner.nextLine();
+				System.out.println("Is it a Smart TV? Type 'yes' or 'no':");
+				boolean isSmart = false;
+				if (scanner.nextLine().equals("yes")) {
+					isSmart = true;
+				}
+				products[counter] = new Televisore(name, price, brand, inches, isSmart);
+				break;
+			case 3:
+				System.out.println("Insert color:");
+				String color = scanner.nextLine();
+				System.out.println("Is it wireless? Type 'yes' or 'no':");
+				boolean isWireless = false;
+				if (scanner.nextLine().equals("yes")) {
+					isWireless = true;
+				}
+				products[counter] = new Cuffie(name, price, brand, color, isWireless);
+				break;
+			}
+			counter++;
+		}
+		scanner.close();
+
+		System.out.println("Catalogo prodotti:");
+		for (Prodotto product : products) {
+			System.out.println(product);
+		}
 	}
-
 }

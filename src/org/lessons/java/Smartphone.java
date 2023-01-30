@@ -28,13 +28,21 @@ package org.lessons.java;
 
 public class Smartphone extends Prodotto {
 
-	int IMEI;
-	int memory;
+	protected int IMEI;
+	protected int memory;
 
-	public Smartphone(String name, Double price) {
-		super(name, price);
+	public Smartphone(String name, Double price, String brand, int memory, int IMEI) {
+		super(name, price, brand);
 		this.name = name;
 		this.price = price;
+		this.brand = brand;
+		this.memory = memory;
+		this.IMEI = IMEI;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "\nIMEI: " + IMEI + "\nMemory: " + memory + "GB" + "\n ";
 	}
 
 }
