@@ -26,6 +26,15 @@ per ogni classe)
 
 package org.lessons.java;
 
-public class Cuffie {
+public class Cuffie extends Prodotto {
+
+	String color;
+	boolean isWireless;
+
+	public Cuffie(String name, Double price) {
+		super(name, price);
+		this.name = name;
+		this.price = price;
+	}
 
 }

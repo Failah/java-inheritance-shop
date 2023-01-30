@@ -26,6 +26,15 @@ per ogni classe)
 
 package org.lessons.java;
 
-public class Smartphone {
+public class Smartphone extends Prodotto {
+
+	int IMEI;
+	int memory;
+
+	public Smartphone(String name, Double price) {
+		super(name, price);
+		this.name = name;
+		this.price = price;
+	}
 
 }

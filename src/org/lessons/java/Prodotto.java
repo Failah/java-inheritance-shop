@@ -29,9 +29,9 @@ package org.lessons.java;
 import java.util.Random;
 
 public class Prodotto {
-	String code;
+	protected int code;
 	String name;
-	String description;
+	String brand;
 	double price;
 	double IVA = 22;
 
@@ -41,18 +41,47 @@ public class Prodotto {
 		this.price = price;
 
 		Random r = new Random();
-		this.code = String.format("%08d", r.nextInt(9998) + 1);
+		this.code = r.nextInt();
 	}
 
-	double getPrice() {
-		return this.price;
+	public int getCode() {
+		return code;
 	}
 
-	double getPriceIVA() {
-		return (price + (price * 22) / 100);
+	public String getName() {
+		return name;
 	}
 
-	String getExtendedName() {
-		return this.code + this.name;
+	public void setName(String name) {
+		this.name = name;
 	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public double getIVA() {
+		return IVA;
+	}
+
+	public double getPriceIVA() {
+		return (this.price + (this.price * 20 / 100));
+	}
+
+	public void setIVA(double iVA) {
+		IVA = iVA;
+	}
+
 }

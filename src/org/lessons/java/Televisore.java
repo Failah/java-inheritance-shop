@@ -26,6 +26,15 @@ per ogni classe)
 
 package org.lessons.java;
 
-public class Televisore {
+public class Televisore extends Prodotto {
+
+	double inches;
+	boolean isSmart;
+
+	public Televisore(String name, Double price) {
+		super(name, price);
+		this.name = name;
+		this.price = price;
+	}
 
 }
